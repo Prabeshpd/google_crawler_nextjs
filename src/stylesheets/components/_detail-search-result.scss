@@ -1,0 +1,34 @@
+.detail-search-result {
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  background-color: $background-color;
+  border-width: 1px;
+  border-color: map-get($color-black, 'secondary');
+
+  @layer components {
+    @apply shadow;
+  }
+
+  &__header {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    color: map-get($color-white, 'primary');
+  }
+
+  &__info {
+    margin-bottom: 1.25rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: map-get($color-white, 'secondary');
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+  }
+}

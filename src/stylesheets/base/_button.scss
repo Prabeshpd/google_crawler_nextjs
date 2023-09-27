@@ -1,0 +1,22 @@
+.button {
+  font-weight: 600;
+  font-size: 0.875rem;
+
+  &--primary {
+    padding: {
+      top: 0.5rem;
+      bottom: 0.5rem;
+      left: 0.75rem;
+      right: 0.75rem;
+    }
+    color: map-get($color-white, 'primary');
+    line-height: 1.25rem;
+    background-color: #4f46e5;
+    border-radius: 0.375rem;
+  }
+
+  &--secondary {
+    text-decoration-color: map-get($color-black, 'primary');
+    line-height: 1.5rem;
+  }
+}

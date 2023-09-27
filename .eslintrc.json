@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "@nimblehq/eslint-config-nimble-react",
+    "next/core-web-vitals",
+    "@nimblehq/eslint-config-nimble-core"
+  ],
+  "rules": {
+    "testing-library/prefer-presence-queries": "off",
+    "testing-library/no-node-access": "off"
+  }
+}

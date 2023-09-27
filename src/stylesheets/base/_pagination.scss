@@ -1,0 +1,43 @@
+.pagination-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: map-get($color-black, 'secondary');
+
+  &__info {
+    color: map-get($color-white, 'secondary');
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+    &--bold {
+      font-weight: 600;
+    }
+  }
+
+  &__list {
+    display: inline-flex;
+    font-size: 0.875rem;
+    height: 2rem;
+    line-height: 1.25rem;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    height: 2rem;
+    border-width: 0.05rem;
+    line-height: 1.25;
+    background-color: #1f2937;
+    border-color: map-get($color-black, 'secondary');
+    color: map-get($color-white, 'primary');
+
+    &--active {
+      background-color: map-get($color-black, 'secondary');
+    }
+  }
+}

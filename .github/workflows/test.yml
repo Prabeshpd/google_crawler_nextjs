@@ -1,0 +1,90 @@
+name: Test
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    container: node:18
+    services:
+      db:
+        image: postgres:14.8
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: ic_nextjs_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set Up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Build
+        run: yarn build
+
+      - name: Create Env
+        run: |
+          touch .env.test
+          echo POSTGRES_DB_CONNECTION_URL=postgresql://postgres:postgres@db:5432/ic_nextjs_test >> .env.test
+
+      - name: Test
+        run: yarn test
+
+  test-ui:
+    name: Test UI
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
+      options: --user 1001
+    services:
+      db:
+        image: postgres:14.8
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: ic_nextjs_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Create Env
+        run: |
+          touch .env.test
+          echo POSTGRES_DB_CONNECTION_URL=postgresql://postgres:postgres@db:5432/ic_nextjs_test >> .env.test
+          echo NEXT_AUTH_SECRET='ENTER_NEXT_AUTH_SECRET' >> .env.test
+
+      - name: Cypress Test
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          build: yarn build
+          command: yarn cypress:test:run

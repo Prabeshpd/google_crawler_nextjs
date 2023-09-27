@@ -1,0 +1,41 @@
+.list-search-result {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+
+  @layer components {
+    @apply shadow-md;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: {
+      bottom: 1rem;
+      top: 0.5rem;
+      left: 0.5rem;
+      right: 0.5rem;
+    }
+    background-color: map-get($color-black, 'primary');
+  }
+
+  &__input {
+    display: block;
+    margin: 1rem;
+    padding: 0.5rem;
+    padding-left: 2.5rem;
+    font-size: 0.875rem;
+    width: 20rem;
+    line-height: 1.25rem;
+    border-radius: 0.5rem;
+    border-width: 1px;
+    border-color: #4b5563;
+    background-color: map-get($color-black, 'secondary');
+    color: map-get($color-white, 'primary');
+
+    @layer components {
+      @apply focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500;
+    }
+  }
+}

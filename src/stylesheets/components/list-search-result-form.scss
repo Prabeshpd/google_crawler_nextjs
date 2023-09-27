@@ -1,0 +1,9 @@
+.list-search-result-form {
+  display: flex;
+  align-items: center;
+
+  &__button--reset {
+    color: map-get($color-white, 'primary');
+    margin: 1rem;
+  }
+}

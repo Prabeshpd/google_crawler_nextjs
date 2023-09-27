@@ -1,0 +1,26 @@
+version: '3.2'
+
+services:
+  postgres_test:
+    container_name: 'postgres_test'
+    image: 'postgres:14'
+    environment:
+      - POSTGRES_DB=web_scrapers_test
+      - POSTGRES_PASSWORD=Password@1234
+      - POSTGRES_USER=postgres
+    ports:
+      - '5433:5432'
+    volumes:
+      - pg_data-test:/var/lib/postgresql/data/
+
+  redis_test:
+    container_name: 'redis_test'
+    image: 'redis:4.0.6-alpine'
+    command: 'redis-server --requirepass "$REDIS_PASSWORD"'
+    environment:
+      - REDIS_PASSWORD=Password@1234
+    ports:
+      - '6379:6379'
+
+volumes:
+  pg_data-test:

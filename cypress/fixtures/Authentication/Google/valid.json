@@ -1,0 +1,7 @@
+{
+  "data": {
+    "tokenType": "token type",
+    "accessToken": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..AqC_e4ipkB9qlkya.e_Ff2XoBfDJ7ue3Rpcd5XzLL8eKEGZYFbaY3QbqimaG0MsH2gLjqBz0t74ebfPv0Mye9g5GPQUXNAkXDwUZGQLolMEpvgbIpjrZFZVG1EsY7Kpm3ID060_dE8jqkj7sYFrjJ4U76jGnTXyw0p8mIBb4KlKwA9q0Sidl15KgmH-6Ywzy_dtNfK1izefJz_bZDfmI_s2LUxJjy5-X-G1jtuUe1prax5vEI5Fm_06g24I0Q.jeG_sPcnMlh3VKlG1kCG8g",
+    "refreshToken": "refresh_token"
+  }
+}

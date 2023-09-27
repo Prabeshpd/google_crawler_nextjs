@@ -1,0 +1,43 @@
+.table {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 100%;
+  text-align: left;
+  color: map-get($color-white, 'secondary');
+
+  &__head {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: map-get($color-white, 'secondary');
+    background-color: map-get($color-black, 'secondary');
+    text-transform: uppercase;
+  }
+
+  &__head > tr > th {
+    padding: {
+      top: 0.75rem;
+      bottom: 0.75rem;
+      left: 1.5rem;
+      right: 1.5rem;
+    }
+  }
+
+  &__body > tr {
+    background-color: $background-color;
+    border-color: map-get($color-black, 'secondary');
+    border-bottom-width: 1px;
+
+    @layer components {
+      @apply hover:bg-gray-50 dark:hover:bg-gray-600;
+    }
+  }
+
+  &__body > tr > td {
+    padding: {
+      top: 1rem;
+      bottom: 1rem;
+      left: 1.5rem;
+      right: 1.5rem;
+    }
+  }
+}

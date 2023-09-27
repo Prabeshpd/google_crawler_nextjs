@@ -2,7 +2,7 @@
   "name": "ic-nextjs-prabesh-dahal",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:nimblehq/ic-nextjs-prabesh-dahal.git",
+  "repository": "git@github.com:Prabeshpd/google_crawler_nextjs.git",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
